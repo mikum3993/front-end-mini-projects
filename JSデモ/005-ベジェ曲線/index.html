@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    html {
+      height: 100%;
+      margin: 0;
+    }
+
+    /* 
+      houdini API 自定义css属性
+    */
+    @property --x {
+      syntax: '<length>';
+      inherits: false;
+      initial-value: 0px;
+    }
+
+    @property --y {
+      syntax: '<length>';
+      inherits: false;
+      initial-value: 0px;
+    }
+
+    .ball {
+      --x: 0px;
+      --y: 0px;
+      transform: translate(var(--x), var(--y));
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      border-radius: 100%;
+      animation: moveX 2s, moveY 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: cubic-bezier(0.5, -10, 0.5, 10);
+      z-index: 1;
+    }
+
+    canvas {
+      position: absolute;
+      background: lightgray;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+    @keyframes moveX {
+      to {
+        /* transform: translateX(10px); */
+        --x: 10px;
+      }
+    }
+
+    @keyframes moveY {
+      to {
+        /* transform: translateY(10px); */
+        --y: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ball"></div>
+  <canvas id="myCanvas" width="800" height="600"></canvas>
+
+  <script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    const target = document.querySelector(".ball");
+
+    setInterval(() => {
+      // 获取元素相对于页面的位置
+      const rect = target.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+
+      // canvas 的位置也可能偏移，因此要考虑 canvas 的边界
+      const canvasRect = canvas.getBoundingClientRect();
+      const relativeX = x - canvasRect.left;
+      const relativeY = y - canvasRect.top;
+
+      // 画一个小点
+      ctx.beginPath();
+      ctx.arc(relativeX, relativeY, 3, 0, 2 * Math.PI);
+      ctx.fillStyle = "black";
+      ctx.fill();
+    }, 50);
+
+
+  </script>
+</body>
+
+</html>
