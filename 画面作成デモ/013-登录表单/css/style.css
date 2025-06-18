@@ -44,8 +44,8 @@ body {
 }
 
 .container .left {
-    width: 50%;
-    height: 400px;
+    width: 250px;
+    height: auto;
     background: url(../assets/images/rainbow_cup.jpg);
     border-radius: 15px 0 0 15px;
     background-size: cover;

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
+
+    .nav {
+      width: 100%;
+      height: 40px;
+      background: #333;
+      box-shadow: 0 1px 2px #666;
+    }
+
+    .navlist {
+      display: flex;
+      justify-content: center;
+    }
+
+    ul .btli {
+      width: 100px;
+      line-height: 40px;
+      text-align: center;
+    }
+
+    .navlist .btli a {
+      color: #fff;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    .navlist a:hover {
+      background: #666;
+    }
+
+    .droplist {
+      display: none;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 100%;
+      background: #333;
+      box-shadow: 0 1px 2px #333;
+      transition: background 0.3s;
+      z-index: 10;
+    }
+
+    .droplist a:hover {
+      background: #c7c6c6;
+      color: #000;
+    }
+
+    .btli:hover .droplist {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <ul class="navlist">
+      <li class="btli">
+        <a href="#">导航项</a>
+        <ul class="droplist">
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+        </ul>
+      </li>
+      <li class="btli">
+        <a href="#">导航项</a>
+        <ul class="droplist">
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+        </ul>
+      </li>
+      <li class="btli">
+        <a href="#">导航项</a>
+        <ul class="droplist">
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+        </ul>
+      </li>
+      <li class="btli">
+        <a href="#">导航项</a>
+        <ul class="droplist">
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+          <li><a href="#">下拉列表</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>
