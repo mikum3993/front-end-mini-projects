@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <img src="./img/小草神纳西妲.gif" id="flower" width="200px" height="200">
+  <br>
+  <button id="prev">上一张</button>
+  <button id="next">下一张</button>
+
+  <script text="text/javascript">
+    const flower = document.getElementById('flower');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+
+    const minIndex = 1, maxIndex = 4;
+    const currentIndex = minIndex;
+    nextBtn.onclick = function () {
+
+      if (currentIndex == maxIndex) {
+        currentIndex = minIndex;
+      } else {
+        currentIndex++;
+      }
+      flower.setAttribute('src', `./img/${currentIndex}.gif`)
+    }
+    prevBtn.onclick = function () {
+
+      if (currentIndex == minIndex) {
+        currentIndex = maxIndex;
+      } else {
+        currentIndex--;
+      }
+      flower.setAttribute('src', `./img/${currentIndex}.gif`)
+    }
+  </script>
+</body>
+
+</html>
