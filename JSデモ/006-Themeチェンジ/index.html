@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <!-- 持久样式 rel='alternate' title='',总是应用于文档 -->
+  <link rel="stylesheet" href="./css/theme-white.css" data-theme="white" title="白色">
+  
+  <!-- 首选样式 -->
+  <link rel="alternate stylesheet" href="./css/theme-dark.css" data-theme="dark" disabled title="黑色">
+  <link rel="alternate stylesheet" href="./css/theme-red.css" data-theme="red" disabled title="红色">
+  <link rel="alternate stylesheet" href="./css/theme-blue.css" data-theme="blue" disabled title="蓝色">
+
+</head>
+<body>
+
+  <div class="container">
+      <section class="title">Theme Switch</section>
+      <section class="switch-btns">
+        <div class="btn white" data-theme="white"></div>
+        <div class="btn dark" data-theme="dark"></div>
+        <div class="btn red" data-theme="red"></div>
+        <div class="btn blue" data-theme="blue"></div>
+      </section>
+  </div>
+
+  <script>
+    const doc =document;
+
+    const themes=[
+      doc.querySelector('link[data-theme="white"]'),
+      doc.querySelector('link[data-theme="dark"]'),
+      doc.querySelector('link[data-theme="red"]'),
+      doc.querySelector('link[data-theme="blue"]')
+    ];
+
+    const btns=doc.querySelectorAll('.btn');
+    btns.forEach(btn =>{
+      btn.addEventListener('click',()=>{
+        const theme = btn.getAttribute('data-theme');
+        switchTheme(theme);
+      })
+    })
+
+    function switchTheme(theme) {
+      themes.forEach(t=>{
+        t.disabled = t.dataset.theme !=theme;
+
+      })
+    }
+  </script>
+  
+</body>
+</html>
